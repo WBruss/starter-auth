@@ -8,6 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -15,27 +18,31 @@ import java.time.LocalDateTime;
 @ToString
 @Entity
 @Table(name = "TBDEVELOPER_COMMUNITY_USER")
-public class AppUser extends UserDetails {
+public class AppUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     @Id
-    Long id;
+    private Long id;
     @Column(name = "FIRST_NAME")
-    String firstName;
+    private String firstName;
 //    @Column(name = "MIDDLE_NAME")
 //    String middleName;
     @Column(name = "LAST_NAME")
-    String lastName;
+    private String lastName;
     @Column(name = "EMAIL")
-    String email;
+    private String email;
+    @Column(name = "PASSWORD")
+    private String password;
     @Column(name = "PHONE_NUMBER")
-    String phoneNumber;
+    private String phoneNumber;
     @Column(name = "ACTIVE")
-    String active;
+    private String active;
     @Column(name = "CRAETED_AT")
-    LocalDateTime createdAt;
+    private LocalDateTime createdAt;
     @Column(name = "UPDATED_AT")
-    LocalDateTime updatedAt;
+    private LocalDateTime updatedAt;
     @Column(name = "DELETED_AT")
-    LocalDateTime deletedAt;
+    private LocalDateTime deletedAt;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<AppUserRole> roles = new ArrayList<>();
 }

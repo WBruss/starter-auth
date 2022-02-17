@@ -9,16 +9,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AppUserDetailsService implements UserDetailsService {
+public class AppUserDetailsService {
 
     @Autowired
     AppUserRepository appUserRepository;
 
-    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return appUserRepository.findAppUserByEmail(username)
-                .orElseThrow(
-                        () -> new UsernameNotFoundException("Email not found")
-                );
+        return null;
     }
 }

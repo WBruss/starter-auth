@@ -1,0 +1,14 @@
+
+## PostgreSQL
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:6000/starter_auth_db
+    username: postgres
+    password: Wainaina4384
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+server:
+  port: 9099
